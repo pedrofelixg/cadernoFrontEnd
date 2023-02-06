@@ -42,6 +42,16 @@
     justify-content: center;
 }
 
+.rodape{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.rodape__logo{
+    align-self: end;
+}
+
 @media (min-width: 720px) {
     .menu{
         column-gap: 75px;
@@ -87,5 +97,10 @@
 
     .agenda__lista{
         justify-content: center;
+    }
+
+    .rodape__logo{
+        align-self: center;
+        order: -1;
     }
 }

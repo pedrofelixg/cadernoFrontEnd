@@ -29,6 +29,7 @@
 
 .eventos__item h3{
     grid-area: nome;
+    align-self: center;
 }
 
 .eventos__item h4{
@@ -37,6 +38,7 @@
 
 .eventos__item h5{
     grid-area: local;
+    align-self: end;
 }
 
 .eventos__item button{
@@ -81,5 +83,35 @@
     .banner img:nth-child(4){
         grid-column: 4/5;
         grid-row: 1/3;
+    }
+}
+
+@media (min-width: 1440px) {
+    .categorias{
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: 
+            "titulo titulo"
+            "lista destaque";
+        column-gap: 1.5rem;
+    }
+
+    .categorias__titulo{
+        grid-area: titulo;
+    }
+
+    .categorias__item{
+        grid-area: lista;
+    }
+
+    .categorias__destaques{
+        grid-area: destaque;
+        align-self: baseline;
+    }
+
+    .categorias__imagem{
+        grid-area: destaque;
+        align-self: end;
     }
 }
