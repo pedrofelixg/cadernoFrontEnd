@@ -18,6 +18,10 @@ let xRaqueteOponente = 680;
 let yRaqueteOponente = 200;
 let velocidadeYOponente;
 
+// placar do jogo
+let meusPontos = 0;
+let pontosDoOponente = 0;
+
 // setor das funções
 function setup() {
   createCanvas(700, 500);
@@ -30,9 +34,12 @@ function draw() {
   moveBall();
   creatRaquete(xRaquete, yRaquete);
   moveRaquete();
-  colisaoRaquete();
+  colisaoRaquete(xRaquete, yRaquete);
   creatRaquete(xRaqueteOponente, yRaqueteOponente);
   oponenteMooving();
+  colisaoRaquete(xRaqueteOponente, yRaqueteOponente);
+  Placar();
+  marcarPontos();
 }
 
 function creatCircle() {
@@ -67,15 +74,46 @@ function moveRaquete() {
   }
 }
 
-function colisaoRaquete(){
-  if (bolinhaX - raio < xRaquete + raqueteComprimento && bolinhaY - raio < yRaquete + raqueteAltura && bolinhaY + raio > yRaquete) {
+// function colisaoRaquete(){
+//   if (bolinhaX - raio < xRaquete + raqueteComprimento && bolinhaY - raio < yRaquete + raqueteAltura && bolinhaY + raio > yRaquete) {
+//     velocidadeX *= -1;
+//   }
+// } <- funcao sem a biblioteca.
+
+function colisaoRaquete(x, y){
+  colidiu = collideRectCircle(x, y, raqueteComprimento, raqueteAltura, bolinhaX, bolinhaY, raio);
+  if(colidiu){
     velocidadeX *= -1;
   }
 }
 
 function oponenteMooving(){
-  velocidadeYOponente = bolinhaY - yRaqueteOponente - raqueteComprimento / 2 - 30;
-  yRaqueteOponente += velocidadeX;
+  if (keyIsDown(87)){
+    yRaqueteOponente -= 10;
+  }
+  
+  if (keyIsDown(83)){
+    yRaqueteOponente += 10;
+  }
 }
 
+/* os códigos dos KeyIsDown são feitos por padrão de teclado referente à biblioteca do https://www.toptal.com/developers/keycode
+no site é possível perceber que existem várias formas de se referir à correspondente. */ 
+
+function Placar() {
+  textAlign(CENTER);
+  textSize(40);
+  fill(255);
+  text(meusPontos, 200, 40);
+  text(pontosDoOponente, 500, 40);
+}
+
+function marcarPontos() {
+  if(bolinhaX > 690) {
+    meusPontos += 1
+  }
+  if(bolinhaX < 10){
+    pontosDoOponente += 1;
+  }
+}
 // o código no aprendizado utiliza uma biblioteca do p5JS, que já prevê a colisão entre formas em dinâmicas de jogo.
