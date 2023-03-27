@@ -58,3 +58,12 @@ for(let ind=0; ind < notasGerais.length; ind++){
 }
 mediaMatricial = mediaMatricial/notasGerais.length
 console.log(mediaMatricial);
+
+const numerosPares = [];
+for(let i=0; i <= 100; i += 2){
+    numerosPares.push(i);
+}
+
+console.log(numerosPares);
+
+// o for sendo usado para incremento de um array
