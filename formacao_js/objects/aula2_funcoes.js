@@ -19,4 +19,5 @@ const cliente = {
     },
 };
 
+cliente.deposito(500);
 cliente.efetuaPagamento(10);
