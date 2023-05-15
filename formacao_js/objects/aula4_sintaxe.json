@@ -1,0 +1,17 @@
+{
+    "nome": "Reginaldo Lucas da Silva Pereira",
+    "anoDeIngresso": 2021,
+    "acesso": {
+        "login": "pereirareginaldo",
+        "senha": "Laurindo21",
+        "email": "lucas_regigatinho@gmail.com",
+        "bloqueado": false
+    },
+    "endereco": {
+        "rua": "Major Amauri Vespúcio",
+        "numero": 135,
+        "bairro": "Pedra do Amor",
+        "cep": "55845-000",
+        "complemento": "casa"
+    }
+}
